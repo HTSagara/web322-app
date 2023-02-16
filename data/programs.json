@@ -1,0 +1,42 @@
+[
+    {
+      "programCode": "ACF",
+      "programName": "Accounting and Finance"
+    },
+    {
+      "programCode": "AVO",
+      "programName": "Aviation Operations"
+    },
+    {
+      "programCode": "DAN",
+      "programName": "3D Animation"
+    },
+    {
+      "programCode": "CPP",
+      "programName": "Computer Programming"
+    },
+    {
+      "programCode": "CPA",
+      "programName": "Computer Programming and Analysis"
+    },
+    {
+      "programCode": "CTY",
+      "programName": "Computer Systems Technology"
+    },
+    {
+      "programCode": "CSN",
+      "programName": "Computer Systems Technician"
+    },
+    {
+      "programCode": "BSD",
+      "programName": "Software Development (Honours Bachelor of Technology)"
+    },
+    {
+      "programCode": "IFS",
+      "programName": "Informatics and Security(Honours Bachelor of Technology)"
+    },
+    {
+      "programCode": "DAS",
+      "programName": "Data Science and Analytics program (Honours Bachelor of Technology)"
+    }
+  ]

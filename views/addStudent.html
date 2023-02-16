@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <!-- Latest compiled and minified Bootstrap 3.3.7 CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/site.css">
+      <title>Home</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand" href="#">WEB322 - Henrique Toshio Sagara</span>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li ><a href="/">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li class="active"><a href="#"> Add Student</a></li>
+            <li><a href="/images/add">Add Image</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/images">Images</a></li>
+            <li><a href="/students">Students</a></li>
+            <li><a href="/intlstudents">Int'l Students</a></li>
+            <li><a href="/programs">Programs</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+        
+                <h2>Add Student</h2>
+
+                <br>
+        
+                <form method="post" action="/students/add">
+        
+                    <fieldset>
+                        <legend>Student Information</legend>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName">First Name:</label>
+                                    <input class="form-control" id="firstName" name="firstName" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="last_name">Last Name:</label>
+                                    <input class="form-control" id="lastName" name="lastName" type="text">
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="studentID">Student ID:</label>
+                                    <input class="form-control" id="studentID" name="studentID" type="text"  />
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input class="form-control" id="email" name="email" type="email">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Phone:</label>
+                                    <input class="form-control" id="phone" name="phone" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="addressStreet">Address (Street):</label>
+                                    <input class="form-control" id="addressStreet" name="addressStreet" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="addressCity">Address (City):</label>
+                                <input class="form-control" id="addressCity" name="addressCity" type="text">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="addressState">Address (State):</label>
+                                    <input class="form-control" id="addressState" name="addressState" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="addressPostal">Address (Zip Code):</label>
+                                    <input class="form-control" id="addressPostal" name="addressPostal" type="text">
+                                </div>
+                            </div>
+                        </div>
+        
+        
+                    <!-- </fieldset>
+        
+                    <fieldset> -->
+                        <!-- <legend>Company Information</legend> -->
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Status:</label><br>
+                                    <label class="checkbox-inline">
+                                        <input type="radio" id="statusFT" name="status" value="Full Time"> Full Time
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="radio" id="statusFT" name="status" value="Part Time"> Part Time
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="programCode">Program:</label>
+                                    <select class="form-control" name="programCode" id="programCode">
+                                        <option value="ACF">ACF - Accounting and Finance</option>
+                                        <option value="AVO">AVO - Aviation Operations</option>
+                                        <option value="DAN">DAN - 3D Animation</option>
+                                        <option value="CPP">CPP - Computer Programming</option>
+                                        <option value="CPA">CPA - Computer Programming and Analysis</option>
+                                        <option value="CTY">CTY - Computer Systems Technology</option>
+                                        <option value="CSN">CSN - Computer Systems Technician</option>
+                                        <option value="BSD">BSD - Software Development (Honours Bachelor of Technology)</option>
+                                        <option value="IFS">IFS - Informatics and Security(Honours Bachelor of Technology)</option>
+                                        <option value="DAS">DAS - Data Science and Analytics program (Honours Bachelor of Technology)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="isInternationalStudent">International Student?</label>
+                                    <input class="form-control" type="checkbox" name="isInternationalStudent">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="expectedCredential">Expected Credential:</label>
+                                    <input class="form-control" id="expectedCredential" name="expectedCredential" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="registrationDate">Registration Date:</label>
+                                    <input class="form-control" id="registrationDate" name="registrationDate" type="text">
+                                </div>
+                            </div>
+                        </div>
+        
+                    </fieldset>
+        
+                    <hr>
+        
+                    <input type="submit" class="btn btn-primary pull-right" value="Add Student"><br><br><br>
+        
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest compiled and minified jQuery 3.2.1 JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified Bootstrap 3.3.7 JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>

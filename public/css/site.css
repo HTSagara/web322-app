@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body{
+    font-family: 'Montserrat';
+}
+h1{
+    font-weight: bold;
+}
+h2{
+    font-weight: bold;    
+}
+.navbar-default{
+    overflow: hidden;
+    background:rgba(159, 156, 156, 0.9);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar-default li:hover{
+    background: #ddd;
+    color: black;
+}
+.container{
+    padding: 16px;
+    margin-top: 30px;
+}
