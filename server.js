@@ -134,7 +134,7 @@ app.get("/images", function(req, res){
     });
 });
 
-app.get('/students/:id', (req, res) => {
+app.get('/student/:id', (req, res) => {
     const id = req.params.id;
     dataService.getStudentById(id).then((data) => {
         res.send(data);
