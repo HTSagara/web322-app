@@ -6,7 +6,7 @@
 * 
 *  Name: Henrique Toshio Sagara Student ID: 170954218 Date: 2023-02-17
 *
-*  Online (Cyclic) Link: https://splendid-cod-capris.cyclic.app
+*  Online (Cyclic) Link:  https://busy-crab-kimono.cyclic.app
 *
 ********************************************************************************/ 
 
@@ -134,12 +134,13 @@ app.get("/images", function(req, res){
     });
 });
 
-app.get('/student/:id', (req, res) => {
+app.get('/students/:id', (req, res) => {
     const id = req.params.id;
     dataService.getStudentById(id).then((data) => {
         res.send(data);
     }).catch((err) => {
         res.send(err);
+        console.log(err);
     });
   });
   
