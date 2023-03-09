@@ -5,20 +5,18 @@ const fs = require('fs');
 
 var students ;
 var programs ;
-var images  ;
+var images = [] ;
 
 function initialize() {
   return new Promise((resolve, reject) => {
-    studentData = JSON.parse(readFileSync('./data/students.json'));
-    programsData = JSON.parse(readFileSync('./data/programs.json'));
-    if(studentData.length === 0){
+    const studentsData = JSON.parse(readFileSync('./data/students.json'));
+    const programsData = JSON.parse(readFileSync('./data/programs.json'));
+    if(!studentsData || studentsData.length === 0){
       reject("Fail to open the file");
     } else{
-      // students = [studentData];
-      students = studentData;
-      resolve();
+      students = studentsData;
     }
-    if(programsData === 0){
+    if(!programsData || programsData.length === 0){
       reject("Fail to open the file")
     }else{
       programs = programsData;
@@ -26,8 +24,6 @@ function initialize() {
     }
   });
 }
-
-
 
 function getAllStudents() {
   return new Promise((resolve, reject) => {
@@ -68,11 +64,11 @@ function getPrograms() {
 
 function addImage(imageUrl) {
   return new Promise((resolve, reject) => {
-     images = imageUrl;
+     images.push(imageUrl);
      if(images.length == 0){
       reject('Image URL not found');
      }else{
-      resolve();
+      resolve(images);
      }
   });
 }
@@ -105,22 +101,6 @@ function getImages() {
     });
   }
   
-  function readJSONFile(filepath) {
-    return new Promise((resolve, reject) => {
-      fs.readFile(filepath, 'utf8', (err, data) => {
-        if (err) {
-          reject(err);
-        } else {
-          try {
-            const parsedData = JSON.parse(data);
-            resolve(parsedData);
-          } catch (err) {
-            reject(err);
-          }
-        }
-      });
-    });
-  }
   
   function getStudentsByStatus(stat) {
     return new Promise((resolve, reject) => {
@@ -173,23 +153,62 @@ function getImages() {
     });
   }
   
-  function getStudentById(sid) {
-    return new Promise((resolve, reject) => {
-      let publish = [];
-      students.forEach(student => {
-        if (student.studentID === sid){
-          publish.push(student);
-        }
-      })
-
-      if (publish.length > 0 ){
-        resolve(publish);
+  function getStudentById(sid)
+  {
+     return new Promise((resolve, reject) =>
+     {
+       var IDFilter = students.filter
+       ((students) => students.studentID === sid);
+ 
+         if (IDFilter)
+         {
+             resolve(IDFilter[0]);
+         } 
+         else 
+         {
+             reject("no results returned");
+         }
+     })
+ }
+ const path = require("path");
+ const dataPath = path.join(__dirname, "/data/students.json");
+ function getStudentData() {
+  return new Promise((resolve, reject) => {
+    fs.readFile(dataPath, "utf-8", (err, data) => {
+      if (err) {
+        reject(err);
       } else {
-        reject("no result");
+        resolve(JSON.parse(data));
       }
     });
-  }
-  
+  });
+}
+
+function updateStudent(studentData) {
+  return new Promise((resolve, reject) => {
+    const index = students.findIndex((student) => students.studentID === studentData.studentID);
+    if (index === -1) {
+      reject(new Error("Student not found"));
+    } else {
+      students[index].firstName = studentData.firstName;
+      students[index].lastName = studentData.lastName;
+      students[index].email = studentData.email;
+      students[index].phone = studentData.phone;
+      students[index].addressStreet = studentData.addressStreet;
+      students[index].addressCity = studentData.addressCity;
+      students[index].addressState = studentData.addressState;
+      students[index].addressPostal = studentData.addressPostal;
+      students[index].status = studentData.status;
+      // students[index].program = studentData.program;
+      students[index].isInternationalStudent = studentData.isInternationalStudent;
+      students[index].expectedCredential = studentData.expectedCredential;
+      students[index].registrationDate = studentData.registrationDate;
+      resolve();
+    }
+  });
+}
+
+
 
 module.exports = {
   initialize,
@@ -202,7 +221,8 @@ module.exports = {
   getStudentsByStatus,
   getStudentsByProgramCode,
   getStudentsByExpectedCredential,
-  getStudentById
+  getStudentById,
+  updateStudent
 };
 
 

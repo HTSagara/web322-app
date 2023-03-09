@@ -26,10 +26,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/students/add">Add Student</a></li>
-            <li class="active"><a href="#">Add Image</a></li>
+            {{#navLink '/'}}Home{{/navLink}}
+            {{#navLink '/about'}}About{{/navLink}}
+            {{#navLink '/students/add'}}Add Student{{/navLink}}
+            {{#navLink '/images/add'}}Add Image{{/navLink}}
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/images">Images</a></li>
@@ -41,29 +41,7 @@
       </div><!-- /.container-fluid -->
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-        
-                <h1>Add Image</h1>
-                <hr>
-        
-                <form method="post" action="/images/add" enctype="multipart/form-data">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="firstName">Image File:</label>
-                                    <input class="form-control" id="imageFile" name="imageFile" type="file">
-                                </div>
-                            </div>
-                        </div>
-    
-                    <hr>
-        
-                    <input type="submit" class="btn btn-primary pull-right" value="Add Image"><br><br><br>
-        
-                </form>
-            </div>
-        </div>
+      {{{body}}}
     </div>
 
     <!-- Latest compiled and minified jQuery 3.2.1 JavaScript -->

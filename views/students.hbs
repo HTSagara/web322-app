@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>Students</h2>
+    <hr />
+    {{#unless students}}
+      <p>No students found.</p>
+    {{/unless}}
+    <div class="table-responsive-md">
+      <table class="table">
+        <thead>
+          <th>Student ID</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Expected Credential</th>
+          <th>Status</th>
+          <th>Program</th>
+          <th>Registration Date</th>
+        </thead>
+        <tbody>
+          {{#each students}}
+          <tr>
+            <td><a href="/student/{{this.studentID}}">{{this.studentID}}</a></td>
+            <td>{{this.firstName}} {{this.lastName}}</td>
+            <td><a href="mailto:{{this.email}}">{{this.email}}</a></td>
+            <td>{{this.addressStreet}} {{this.addressCity}} {{this.addressState}} {{this.addressPostal}}</td>
+            <td><a href="/students?credential={{this.expectedCredential}}">{{this.expectedCredential}}</a></td>
+            <td><a href="/students?status={{this.status}}">{{this.status}}</a></td>
+            <td><a href="/students?program={{this.program}}">{{this.program}}</a></td>
+            <td>{{this.registrationDate}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
