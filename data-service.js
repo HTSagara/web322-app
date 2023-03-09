@@ -170,19 +170,6 @@ function getImages() {
          }
      })
  }
- const path = require("path");
- const dataPath = path.join(__dirname, "/data/students.json");
- function getStudentData() {
-  return new Promise((resolve, reject) => {
-    fs.readFile(dataPath, "utf-8", (err, data) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(JSON.parse(data));
-      }
-    });
-  });
-}
 
 function updateStudent(studentData) {
   return new Promise((resolve, reject) => {
