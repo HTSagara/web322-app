@@ -157,12 +157,12 @@ function getImages() {
   {
      return new Promise((resolve, reject) =>
      {
-       var IDFilter = students.filter
+       var id = students.filter
        ((students) => students.studentID === sid);
  
-         if (IDFilter)
+         if (id)
          {
-             resolve(IDFilter[0]);
+             resolve(id[0]);
          } 
          else 
          {
