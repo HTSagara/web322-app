@@ -157,12 +157,12 @@ function getImages() {
   {
      return new Promise((resolve, reject) =>
      {
-       var id = students.filter
+       var IDFilter = students.filter
        ((students) => students.studentID === sid);
  
-         if (id)
+         if (IDFilter)
          {
-             resolve(id[0]);
+             resolve(IDFilter[0]);
          } 
          else 
          {
@@ -171,29 +171,19 @@ function getImages() {
      })
  }
 
-function updateStudent(studentData) {
+ function updateStudent(studentData) {
   return new Promise((resolve, reject) => {
-    const index = students.findIndex((student) => students.studentID === studentData.studentID);
-    if (index === -1) {
-      reject(new Error("Student not found"));
-    } else {
-      students[index].firstName = studentData.firstName;
-      students[index].lastName = studentData.lastName;
-      students[index].email = studentData.email;
-      students[index].phone = studentData.phone;
-      students[index].addressStreet = studentData.addressStreet;
-      students[index].addressCity = studentData.addressCity;
-      students[index].addressState = studentData.addressState;
-      students[index].addressPostal = studentData.addressPostal;
-      students[index].status = studentData.status;
-      // students[index].program = studentData.program;
-      students[index].isInternationalStudent = studentData.isInternationalStudent;
-      students[index].expectedCredential = studentData.expectedCredential;
-      students[index].registrationDate = studentData.registrationDate;
+    const index = students.findIndex((student) => student.studentID === studentData.studentID);
+    if (index >= 0) {
+      const updatedStudent = {...studentData};
+      students.splice(index, 1, updatedStudent);
       resolve();
+    } else {
+      reject("No student found with matching ID");
     }
   });
 }
+
 
 
 
