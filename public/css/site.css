@@ -1,26 +1,105 @@
+/* Import Google Font Montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-body{
-    font-family: 'Montserrat';
-}
-h1{
-    font-weight: bold;
-}
-h2{
-    font-weight: bold;    
-}
-.navbar-default{
-    overflow: hidden;
-    background:rgba(159, 156, 156, 0.9);
-    position: fixed;
-    top: 0;
-    width: 100%;
+
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
 }
 
-.navbar-default li:hover{
-    background: #ddd;
-    color: black;
+/* Navigation bar styles */
+.navbar {
+  background-color: #383838;
+  border: none;
+  border-radius: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
 }
-.container{
-    padding: 16px;
-    margin-top: 30px;
+
+.navbar-brand {
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.navbar-nav > li > a {
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar-nav > li > a:hover {
+  color: #f4c20d;
+}
+
+/* Page content styles */
+.container {
+  margin-top: 70px; /* To avoid content being covered by navbar */
+  padding: 20px;
+  max-width: 800px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Media queries for smaller screens */
+@media (max-width: 991px) {
+  .navbar-brand {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-brand {
+    font-size: 10px;
+  }
+
+  .navbar-toggle {
+    margin-right: 15px;
+  }
+
+  .navbar-header {
+    float: none;
+  }
+
+  .navbar-nav {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .navbar-nav > li {
+    display: inline-block;
+  }
+
+  .navbar-nav > li > a {
+    display: block;
+    padding: 10px 15px;
+    border-radius: 4px;
+  }
+
+  .navbar-nav > li > a:hover {
+    background-color: #f4c20d;
+    color: #e4dfdf;
+  }
+
+  .container {
+    margin-top: 100px; /* Increase margin-top to avoid content being covered by navbar */
+  }
 }

@@ -1,25 +1,38 @@
 <div class="row">
   <div class="col-md-12">
-    <h2>Programs</h2>
+    <h2>
+      Programs
+      <a href="/programs/add" class="btn btn-success pull-right">Add New Program</a>
+    </h2>
     <hr />
-    {{#unless programs}}
-      <p>No programs found.</p>
-    {{/unless}}
     <div class="table-responsive-md">
       <table class="table">
         <thead>
           <th>Program Code</th>
           <th>Program Name</th>
+          <th></th>
+          <th></th>
         </thead>
         <tbody>
           {{#each programs}}
           <tr>
-            <td><a href="/students?program={{this.programCode}}">{{this.programCode}}</a></td>
-            <td><a href="/students?program={{this.programCode}}">{{this.programName}}</a></td>
+            <td><a href="/program/{{this.programCode}}">{{this.programCode}}</a></td>
+            <td><a href="/program/{{this.programCode}}">{{this.programName}}</a></td>
+            {{!-- <td><a href="/program/{{this.programCode}}/edit" class="btn btn-warning">edit</a></td> --}}
+            <td>
+              <a href="/programs/delete/{{programCode}}" class="btn btn-danger " onsubmit="return confirm('Are you sure you want to delete this program?')">
+                <button type="submit" class="btn btn-danger">remove</button>
+              </form>
+            </td>
           </tr>
           {{/each}}
         </tbody>
       </table>
+    </div>
+    <div>
+          {{#unless programs}}
+            <strong>No programs found.</strong>
+          {{/unless}}
     </div>
   </div>
 </div>

@@ -90,18 +90,26 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="program">Program:</label>
-                            <select class="form-control" name="program" id="program">
-                                <option value="ACF">ACF - Accounting and Finance</option>
-                                <option value="AVO">AVO - Aviation Operations</option>
-                                <option value="DAN">DAN - 3D Animation</option>
-                                <option value="CPP">CPP - Computer Programming</option>
-                                <option value="CPA">CPA - Computer Programming and Analysis</option>
-                                <option value="CTY">CTY - Computer Systems Technology</option>
-                                <option value="CSN">CSN - Computer Systems Technician</option>
-                                <option value="BSD">BSD - Software Development (Honours Bachelor of Technology)</option>
-                                <option value="IFS">IFS - Informatics and Security(Honours Bachelor of Technology)</option>
-                                <option value="DAS">DAS - Data Science and Analytics program (Honours Bachelor of Technology)</option>
-                            </select>
+                            {{!-- <select class="form-control" name="program" id="program">
+                                <option value="">Select Program</option>
+                                {{#if program}}
+                                    {{#each programs}}
+                                        <option value="{{programCode}}">{{programCode}}</option>
+                                    {{/each}}
+                                {{else}}
+                                    <div>No Programs</div>
+                                {{/if}}
+                            </select> --}}
+                            {{#if programs}}
+                                <select class="form-control" name="program" id="program">
+                                        <option value="">Select Program</option>
+                                        {{#each programs}}
+                                            <option value="{{programCode}}"> {{programCode}} - {{programName}}</option>
+                                        {{/each}}
+                                </select>
+                            {{else}}
+                                <div>No Programs</div>
+                            {{/if}}
                         </div>
                     </div>
                     <div class="col-md-3">

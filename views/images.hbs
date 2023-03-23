@@ -1,13 +1,30 @@
 <div class="row">
     <div class="col-md-12">
-        <h2>Images</h2>
+        <h2>
+            Images
+            <a href="/images/add" class="btn btn-success pull-right">Add New Image</a>
+        </h2>
         <hr />
     </div>
-    
+
     {{#each images}}
         <div class="col-md-4">
-            <img src="{{this}}" class="img-responsive img-thumbnail" />
-            {{!-- <li>{{this}}</li> --}}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{{this.imageUrl}}" target="_blank"><img src="{{this.imageUrl}}" class="img-responsive img-thumbnail" /></a>
+                    <ul>
+                        <li><strong>Image ID:</strong> {{this.imageId}}</li>
+                        <li><strong>Version:</strong> {{this.version}}</li>
+                        <li><strong>Width:</strong> {{this.width}}</li>
+                        <li><strong>Height:</strong> {{this.height}}</li>
+                        <li><strong>Format:</strong> {{this.format}}</li>
+                        <li><strong>Resource Type:</strong> {{this.resourceType}}</li>
+                        <li><strong>Uploaded At:</strong> {{this.uploadedAt}}</li>
+                        <li><strong>Original File Name:</strong> {{this.originalFileName}}</li>
+                        <li><strong>Mime Type:</strong> {{this.mimeType}}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     {{else}}
         <div class="col-md-12 text-center">
