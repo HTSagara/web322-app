@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{session.user.userName}} ({{session.user.email}}) History</title>
+</head>
+<body>
+	<h2>{{session.user.userName}} ({{session.user.email}}) History</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Login Date/Time</th>
+				<th>Client Information</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each session.user.loginHistory}}
+			<tr>
+				<td>{{this.dateTime}}</td>
+				<td>{{this.userAgent}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</body>
+</html>

@@ -28,16 +28,32 @@
           <ul class="nav navbar-nav">
             {{#navLink '/'}}Home{{/navLink}}
             {{#navLink '/about'}}About{{/navLink}}
-            {{!-- {{#navLink '/students/add'}}Add Student{{/navLink}}
-            {{#navLink '/images/add'}}Add Image{{/navLink}} --}}
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/images">Images</a></li>
-            <li><a href="/students">Students</a></li>
-            {{!-- <li><a href="/intlstudents">Int'l Students</a></li> --}}
-            <li><a href="/programs">Programs</a></li>
-          </ul>
+          {{#if session.user}}
+            <form class="navbar-form navbar-right">
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="userMenu" data-toggle="dropdown">
+                  <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;{{session.user.userName}}&nbsp;&nbsp;<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="userMenu">
+                  <li><a href="/userHistory">User History</a></li>
+                  <li><a href="/logout">Log Out</a></li>
+                </ul>
+              </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              {{#navLink "/images"}}Images{{/navLink}}
+              {{#navLink "/students"}}Students{{/navLink}}
+              {{#navLink "/programs"}}Programs{{/navLink}}
+            </ul>
+          {{else}}
+            <form class="navbar-form navbar-right">
+              <a href="/register" class="btn btn-success"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;Register</a>
+              <a href="/login" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Log In</a>
+            </form>
+          {{/if}}
         </div><!-- /.navbar-collapse -->
+
       </div><!-- /.container-fluid -->
     </nav>
     <div class="container">

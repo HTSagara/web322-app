@@ -1,7 +1,7 @@
 {
   "name": "web322-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Create and publish a web app that uses multiple routes which serve static files (HTML & CSS) as well as create a data service module for accessing data.\r https://taupe-lemur-cuff.cyclic.app/",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,14 +10,25 @@
   "author": "Henrique Sagara",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "client-sessions": "^0.8.0",
     "cloudinary": "^1.34.0",
     "express": "^4.18.2",
     "express-handlebars": "^7.0.1",
+    "mongoose": "^7.0.3",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.2.0",
     "pg": "^8.10.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.29.3",
     "streamifier": "^0.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HTSagara/web322-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HTSagara/web322-app/issues"
+  },
+  "homepage": "https://github.com/HTSagara/web322-app#readme"
 }
